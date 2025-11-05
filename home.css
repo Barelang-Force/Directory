@@ -1,0 +1,509 @@
+/* ===== BASIC SETUP ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #0b0b0b;
+  color: white;
+  overflow-x: hidden;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.8em;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #fff;
+  text-decoration: none;
+  text-shadow: 0 0 8px rgba(0,191,255,0.4);
+  transition: 0.4s;
+}
+
+.logo:hover {
+  transform: scale(1.03);
+  text-shadow: 0 0 15px rgba(255,60,60,0.8);
+}
+
+.logo-img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 12px rgba(0,191,255,0.6);
+  transition: 0.3s ease;
+}
+
+.logo-img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(255,60,60,0.8);
+}
+
+.force {
+  color: red;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  background: linear-gradient(90deg, #050505, #002b4d);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.5);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: 0.4s;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 50px;
+}
+
+.logo {
+  font-size: 1.8em;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #fff;
+  text-shadow: 0 0 8px rgba(0,191,255,0.4);
+  transition: 0.4s;
+}
+
+.logo .sky {
+  color: #ff0000;
+  text-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+  transition: 0.4s;
+}
+
+.logo .force {
+  color: #ff3b3b;
+  text-shadow: 0 0 15px rgba(255,60,60,0.8);
+  transition: 0.4s;
+}
+
+.logo:hover .sky {
+  color: #1ed5ff;
+  text-shadow: 0 0 25px rgba(0,191,255,1);
+}
+
+.logo:hover .force {
+  color: #ff5252;
+  text-shadow: 0 0 25px rgba(255,70,70,1);
+}
+
+/* ===== NAV MENU ===== */
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 35px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1em;
+  position: relative;
+  transition: 0.3s ease;
+}
+
+.nav-menu li a::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #00bfff;
+  transition: 0.3s;
+  box-shadow: 0 0 6px #00bfff;
+}
+
+.nav-menu li a:hover::after,
+.nav-menu li a.active::after {
+  width: 100%;
+}
+
+.nav-menu li a:hover {
+  color: #00bfff;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  background-size: cover;
+  background-position: center;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.slide.video-slide video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 30px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  animation: fadeIn 1.5s ease;
+}
+
+.hero h1 {
+  font-size: 3.5em;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.hero h1 span {
+  color: #ff0000;
+  text-shadow: 0 0 20px rgba(0,191,255,0.8);
+}
+
+.hero p {
+  font-size: 1.2em;
+  color: #ccc;
+  margin-bottom: 30px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 32px;
+  background: #020202;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: 0.3s ease;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+  animation: pulse 2s infinite ease-in-out;
+}
+
+.btn:hover {
+  background: #ff0000;
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.9);
+  transform: scale(1.05);
+}
+
+.slider-controls {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 15px;
+  z-index: 3;
+}
+
+.slider-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.slider-dot.active {
+  background: #ff0000;
+  transform: scale(1.3);
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+}
+
+/* ===== DIVISION SECTION ===== */
+.division-section {
+  text-align: center;
+  background: #06182e;
+  color: #fff;
+  padding: 90px 20px;
+}
+
+.section-title {
+  font-size: 2.2em;
+  font-weight: 700;
+  color: #00bfff;
+  margin-bottom: 50px;
+  text-shadow: 0 0 20px rgba(0,191,255,0.8);
+}
+
+/* Container tengah */
+.division-row {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+  flex-wrap: wrap;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Kartu divisi yang bisa diklik */
+.division-card {
+  background: linear-gradient(145deg, #0d284a, #0b1c2e);
+  border: 2px solid rgba(0,191,255,0.3);
+  border-radius: 18px;
+  width: 280px;
+  min-height: 120px;
+  max-height: 120px; /* Tambahkan ini */
+  box-shadow: 0 0 18px rgba(0,191,255,0.3);
+  transition: all 0.4s ease;
+  overflow: hidden;
+  cursor: pointer;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.division-card.active {
+  min-height: 400px;
+  max-height: 500px; /* Tambahkan ini */
+  border-color: red;
+  box-shadow: 0 0 30px rgba(255,0,0,0.7);
+  transform: translateY(10px); /* Tambahkan efek turun */
+}
+
+/* Header kartu */
+.division-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 20px;
+  background: rgba(0, 0, 0, 0.2);
+  min-height: 70px; /* Pastikan tinggi konsisten */
+}
+
+.division-header h3 {
+  color: #00bfff;
+  font-size: 1.5em;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.division-card.active .division-header h3 {
+  color: #ff5252;
+}
+
+.toggle-icon {
+  color: #00bfff;
+  font-size: 1.8em;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.division-card.active .toggle-icon {
+  transform: rotate(45deg);
+  color: #ff5252;
+}
+
+/* Konten kartu */
+.division-content {
+  padding: 0 20px;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.division-card.active .division-content {
+  padding: 20px;
+  max-height: 500px;
+  opacity: 1;
+}
+
+.division-content p {
+  color: #ddd;
+  font-size: 1em;
+  line-height: 1.6em;
+  margin-bottom: 20px;
+}
+
+.division-details {
+  text-align: left;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 15px;
+}
+
+.division-details h4 {
+  color: #00bfff;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+}
+
+.division-details ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.division-details li {
+  color: #ddd;
+  padding: 5px 0;
+  padding-left: 20px;
+  position: relative;
+}
+
+.division-details li:before {
+  content: "▸";
+  color: #ff5252;
+  position: absolute;
+  left: 0;
+}
+/* ===== TRAINING & RESEARCH CENTRE ===== */
+.training-section {
+  background: #f8f9fa;
+  padding: 100px 50px;
+  text-align: center;
+}
+
+.training-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #007bff;
+  margin-bottom: 50px;
+}
+
+.training-row {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+/* --- Card --- */
+.training-card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  width: 300px;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.training-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* --- Gambar/Icon --- */
+.training-card-image {
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Ganti path ini sesuai file kamu */
+.brail-icon {
+  background-image: url('C:/Users/Hp/webteams/Directory/Fig/Rbrail.jpeg');
+}
+
+.futsal-icon {
+  background-image: url('C:/Users/Hp/webteams/Directory/Fig/Futsal.jpeg');
+}
+
+.hangar-icon {
+  background-image: url('C:/Users/Hp/webteams/Directory/Fig/Hangarpolibatam.jpg');
+}
+
+/* --- Konten Card --- */
+.training-card-content {
+  padding: 20px;
+}
+
+.training-card-content h3 {
+  font-size: 20px;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.training-card-content p {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.6;
+}
+/* ===== SUBTEAMS SECTION ===== */
+.subteams {
+  background-color: #003366;
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.subteams h2 {
+  margin-bottom: 40px;
+  font-size: 2em;
+  text-transform: uppercase;
+}
+
+.subteam-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.subteam-box {
+  background-color: #004488;
+  border-radius: 20px;
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.subteam-box:hover {
+  transform: scale(1.05);
+}
+
+.subteam-box img {
+  width: 100%;
+  border-radius: 15px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.subteam-box p {
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 1.1em;
+}

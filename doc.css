@@ -1,0 +1,6 @@
+/* doc.css - custom style untuk halaman documentation */
+
+nav a.active {
+    background: #93c5fd;
+    font-weight: bold;
+}

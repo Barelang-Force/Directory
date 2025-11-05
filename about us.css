@@ -1,0 +1,6 @@
+/* about us.css - custom style untuk halaman about us */
+
+nav a.active {
+    background: #93c5fd;
+    font-weight: bold;
+}

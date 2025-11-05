@@ -1,0 +1,6 @@
+/* product.css - custom style untuk halaman product dev */
+
+nav a.active {
+    background: #93c5fd;
+    font-weight: bold;
+}
