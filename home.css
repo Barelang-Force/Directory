@@ -434,15 +434,15 @@ body {
 
 /* Ganti path ini sesuai file kamu */
 .brail-icon {
-  background-image: url('C:/Users/Hp/webteams/Directory/Fig/Rbrail.jpeg');
+  background-image: url('../Directory/Fig/Rbrail.jpeg');
 }
 
 .futsal-icon {
-  background-image: url('C:/Users/Hp/webteams/Directory/Fig/Futsal.jpeg');
+  background-image: url('../Directory/Fig/Futsal.jpeg');
 }
 
 .hangar-icon {
-  background-image: url('C:/Users/Hp/webteams/Directory/Fig/Hangarpolibatam.jpg');
+  background-image: url('../Directory/Fig/Hangarpolibatam.jpg');
 }
 
 /* --- Konten Card --- */
